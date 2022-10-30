@@ -1,0 +1,113 @@
+## features :
+
+* all users :
+
+  * login & log out
+
+* admin :
+
+  * create e-mails
+  * add &remove subjects
+
+* doctor can :
+
+  - see his subjects
+
+  - create lectures
+  - add files & videos in lecture
+  - create exam
+  - receive exam solution and send grades
+  - create questions bank 
+
+* student can :
+
+  - see his subjects
+  - see every subject details 
+  - access an exam and send solution
+  - download lecture resources
+
+## more features :
+
+* presence & absence 
+* current available hall
+* student help laws
+* chat
+* life video
+* competition
+
+-----
+
+## tables :
+
+### about :
+
+* faculty_name
+* vision & message
+* description
+* image
+* logo
+
+### user :
+
+* user_name
+* email
+* password
+
+### profile :
+
+* type  **choices **
+
+* image
+* grade
+
+### subject :
+
+* name
+* image
+* description
+* doctor_name
+* grade **choices**
+* term **choices**
+
+### lecture :
+
+* name
+* description
+* file
+* video
+* assignment **text**
+
+### exam :
+
+* name
+* subject_name
+* doctor_name
+* question_number
+* date
+* start_time
+* end_time
+* easy_questions_no
+* intermediate_questions_no
+* difficult_questions_no
+
+### question_tf :
+
+* body
+* answer **boolean**
+* type
+* difficulty **choices**
+* mark
+* status **choices**
+* image
+
+### question_mcq:
+
+* body
+* answer_text
+* answer_image
+* type
+* difficulty **choices**
+* mark
+* status **choices**
+* image
+
