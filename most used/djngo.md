@@ -1,3 +1,8 @@
+gunicorn -b 0.0.0.0:8000 project.wsgi
+## Admin info :
+username : admin
+password : rtgomTYHRV4%withALLAH010951@#*&631&#WE84h8%$#@@@#r
+
 ## convert md to docs:
 
 ```
@@ -96,6 +101,7 @@ pythonmanage.py changepassword admin (admin is the user name)
 ## HttpResponse :
 
 ### HTTP response error messages :
+```
 
 * HttpResponseNotModified  ==> a page hasn't been modified since the user's last request (status code 304).
 * HttpResponseBadRequest  ==>  400 status code.
@@ -143,6 +149,7 @@ types=[
 ]
 
 class Property(models.Model):
+id = models.CharField(max_length=10,primary_key=True) # to use your own pk
     owner= models.ForeignKey(User,related_name='property_owner',on_delete=models.CASCADE,queryset = User.objects.all())
     # on_delete types : https://www.javatpoint.com/django-on_delete
     name = models.CharField(max_length=100,verbose_name='property_name') # property_name 		will appear in admin pannel not title
@@ -153,6 +160,7 @@ class Property(models.Model):
     #created_at = models.DateTimeField(default=timezone.now)
     description = models.TextField(max_length=2000)
     type = models.CharField(choices=types ,max_length=50)
+    quantity = models.PositiveSmallIntegerField() # no negative number for quantity
     class Meta:
         verbose_name_plural = 'MyPosts' # MyPosts is the name that will be appear in the 				admin pannel(django by default takes the table name and add s to it )
     class Meta:
@@ -469,7 +477,7 @@ def lecture(request,id):
 
 * Count :
 
-  ```
+  ``` python
   # models :
   class Client(models.Model):
       name = models.CharField(max_length=200,null=True,blank=True)
@@ -491,7 +499,7 @@ def lecture(request,id):
   	
   # dailyoperation is the related table name in small or relation name .
   ```
-
+  
   -----
 
 ## Q filter :
@@ -547,7 +555,34 @@ def home(request):
 ```
 
 -----
+## related_name & set :
+EX : (related_name)
+```python
+class Quiz(models.Model):
+    number_of_questions = models.IntegerField()
+	# questions = ...   # django creates this field with the related_name you put in the child table(Question) for the ralation between Quiz and Question 
 
+    def get_questions(self):
+        return self.questions.all()[:self.number_of_questions]
+        # questions is the related_name
+class Question(models.Model):
+	text = models.CharField() 
+	quiz = models.ForignKey(Quiz,on_delete.CASCADE,related_name = 'questions')
+```
+Ex : (set)
+```python
+class Quiz(models.Model):
+    number_of_questions = models.IntegerField()
+	# question_set = ...   # django creates this field automaticaly for the ralation between Quiz and Question 
+
+    def get_questions(self):
+        return self.question_set.all()[:self.number_of_questions]
+        # question_set is the default related_name 
+class Question(models.Model):
+	text = models.CharField() 
+	quiz = models.ForignKey(Quiz,on_delete.CASCADE)
+```
+---
 ## template :
 
 * where :
@@ -1852,7 +1887,50 @@ def subjects(request):
 	pass
 ```
 
+--------------
+## custom form validator :
 
+in form.py :
+
+```python
+
+def three_words(value):
+
+	space_counter=0
+
+	for space in value:
+
+		if space == " ":
+
+			space_counter+=1
+
+	if space_counter <2:
+
+		raise forms.ValidationError("name must contains from 3 words or more")
+
+  
+
+class RegisterUserForm(UserCreationForm):
+
+	def __init__(self, *args, **kwargs):
+
+		super().__init__(*args, **kwargs)
+
+		self.helper = FormHelper(self)
+
+		self.helper.add_input(Submit('submit', 'Register'))
+
+	name = forms.CharField(widget=forms.TextInput(attrs={'class': 'validate'}), required=True,validators =[three_words])
+
+# email = forms.CharField(widget=forms.TextInput(attrs={'class': 'validate'}), required=True)
+
+	class Meta:
+
+		model = User
+
+		fields = ['name', 'username', 'email', 'password1', 'password2']
+
+```
 
 ----
 
@@ -2375,6 +2453,19 @@ def updateUser(request):
     image = user_additional_information.image.url
 ```
 
+---------------
+
+## on_delete :
+EX : 
+```python
+class Product(models.Model):
+    host = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+```
+* CASCADE  => when the Category (parent) is deleted ,delete all related children (products)
+* SET_NULL => when the Category (parent) is deleted ,keep the children (products) but set the Category field to be null for every related product (child) 
+ => the best example is the orders related to an user , if the user is deleted ,we need to keep the orders .
+* SET_DEFAULT => when the Category (parent) is deleted ,give default value for the children 
+* PROTECT => Parent (Category) can't be deleted before deleting the children (all related products)
 --------------
 ## django social app :
 follow this link :
@@ -2923,6 +3014,7 @@ def shop(request):
    {% endfor %}
 
 ```
+
 ``` python
 
 def addtolove(request):
@@ -3406,3 +3498,17 @@ return redirect('/admin/products/product/')
 ```
 
 * so when sendnewproductsmails function is called by url , it will call sendmailstask from tasks.py and execute it in celery server .
+
+----------------
+## Google drive as your progect storage :
+
+https://django-googledrive-storage.readthedocs.io/en/latest/
+
+---------------
+## drive api :
+*we created google cloud project : 
+	https://console.cloud.google.com/welcome?project=platrain
+information of this project:
+	name : platrain
+	Project number: 648039689590
+	Project ID: platrain

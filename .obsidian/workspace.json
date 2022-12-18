@@ -1,0 +1,152 @@
+{
+  "main": {
+    "id": "444fa4d77483f07a",
+    "type": "split",
+    "children": [
+      {
+        "id": "8eb26ddb516c43da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd466ecc1ef94dba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "most used/github.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "220ba3e54c041663",
+    "type": "split",
+    "children": [
+      {
+        "id": "aefa195bd9032c28",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "88232ff29d49abbe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "07acd87b284c8435",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "39a27ca6685ea2b7",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "721cc901c911c8f5",
+    "type": "split",
+    "children": [
+      {
+        "id": "9726b66f3e3ec91a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b287086b54bebcc3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "most used/github.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "85638cc1a7adbc2d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "most used/github.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "281aa7ddf6f63920",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e0fdc558df346934",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "most used/github.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "fd466ecc1ef94dba",
+  "lastOpenFiles": [
+    "most used/djngo.md",
+    "most used/c#notes.md",
+    "most used/github.md",
+    "most used/PlatRain Server DigitalOcean.md",
+    "most used/digitalocean.md",
+    "c#notes.md",
+    "c#.md",
+    "djngo.md",
+    "js.md",
+    "PlatRain Server DigitalOcean.md"
+  ]
+}

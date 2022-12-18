@@ -192,3 +192,4 @@ Adding a SSL certificate to you Django sites is well documented many  places. In
 ### Try DigitalOcean your self
 
 If you go to [DigitalOcean](https://m.do.co/c/d3cdd4293e67) using this link you will receive a $10 credit. So you'll be able to test their cheapest droplet for two months!
+
