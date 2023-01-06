@@ -1,3 +1,4 @@
+
 user name: ahmedprog
 email : ahmedissaprog@gmail.com
 password : githubPASSWORD010*#
@@ -11,6 +12,7 @@ email : ahmedibra3117@gmail.com
 password : withALLAH010*#
 
 token: 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
+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
 
 **************************
 ## building a repo and project :
@@ -122,6 +124,10 @@ token: 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
 	* remove stash 
 		git drop   => remove last stash and its content
 		git stash clear => remove all stashes
+#### revert a commit : 
+i need my current code in vscode to be the code of the last commit or any previous commit :
+the head points to the last commit and this means that the last commit is the current active commit . so we need to change the head pointer to another commit :
+	git reset --hard HEAD~1   ---> point to the last commit 
 #### reset commits :
 ##### the problem :
 	you made many commits and pushed them to the origin but you need to remove last commit or more 

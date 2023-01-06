@@ -26,4 +26,13 @@ if inactive , do these two commands to activate it :
 	* deactivate  # to deactivate the environment
 	* ufw enable
 	* sudo ufw allow 8000   # to allow port 8000 on digital ocean machine
-	
+
+
+
+i have a jango model with imagefield , i need to create instance of it 
+------------------------------------------
+
+ssh root@143.110.168.90
+systemctl restart gunicorn
+
+systemctl status gunicorn

@@ -1,16 +1,34 @@
+https://youtu.be/px9HonWy_-4
+https://youtu.be/cZfynVKMQ3Q
+mohamedhegazy
+geohistory010
+
+
 gunicorn -b 0.0.0.0:8000 project.wsgi
 ## Admin info :
 username : admin
 password : rtgomTYHRV4%withALLAH010951@#*&631&#WE84h8%$#@@@#r
+
+#### platrain-v2
+
+admin
+admin123456
+
+drhebagamal
+heba234567
+
+ drwassam
+Wassam123456
+
+drghada
+ghada123456
 
 ## convert md to docs:
 
 ```
 Enter: pandoc -o output.docx -f markdown -t docx filename.md
 ```
-
-## prepare :
-
+ 
 ## preparing django project:
 
 1. to know python libraries you installed
@@ -198,6 +216,23 @@ MEDIA_CHOICES = [
 ]
 
     type = models.CharField(choices=types ,max_length=50)
+```
+
+---------
+## Meta :
+
+```python
+
+class Property(models.Model):
+    name = models.CharField(max_length=100,verbose_name='property_name') # 
+    class Meta:
+        verbose_name_plural = 'MyPosts'
+        ordering = ['-created_at'] 
+        db_table = 'MyPosts'
+        indexes = [
+        models.Index(fields=['last_name','first_name'])
+        ]
+# for more Meta options search for django Meta
 ```
 
 ---
@@ -842,6 +877,19 @@ request.get_full_path # gets path with parameters
 
 {% endfor %}
 
+------------------------------------------------------------
+# define variable in template :
+# ex1:
+{% with x=3 y=2 %}
+
+{{x}}
+
+{% endwith %}
+
+# ex2:
+{% with total=business.employees.count %}
+    {{ total }} employee{{ total|pluralize }}
+{% endwith %}
   ```
 
 * urls :
@@ -3349,12 +3397,7 @@ def sendnewproductsmails(request):
 
 ```python
 import os
-
-  
-
 from celery import Celery
-
-  
 
 # Set the default Django settings module for the 'celery' program.
 
@@ -3363,26 +3406,15 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')
 
 app = Celery('ecommerce')
 
-  
-
 # Using a string here means the worker doesn't have to serialize
-
 # the configuration object to child processes.
-
 # - namespace='CELERY' means all celery-related configuration keys
-
 # should have a `CELERY_` prefix.
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
-  
-
 # Load task modules from all registered Django apps.
-
 app.autodiscover_tasks()
-
-  
-  
 
 @app.task(bind=True)
 
@@ -3391,7 +3423,7 @@ def debug_task(self):
 print(f'Request: {self.request!r}')
 ```
 
-#### add this in__init__.py file in project folder :
+#### add this in __init__.py file in project folder :
 
 ```python
 from .celery import app as celery_app

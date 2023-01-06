@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8eb26ddb516c43da",
+        "id": "e4e81b35237a3a62",
         "type": "tabs",
         "children": [
           {
-            "id": "fd466ecc1ef94dba",
+            "id": "5ff743439fe9e22a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7126aecbbfbc3a04",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "most used/passwords.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "most used/github.md",
+                "file": "most used/passwords.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "most used/github.md",
+                "file": "most used/passwords.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "most used/github.md"
+                "file": "most used/passwords.md"
               }
             }
           }
@@ -136,17 +149,27 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "fd466ecc1ef94dba",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "7126aecbbfbc3a04",
   "lastOpenFiles": [
-    "most used/djngo.md",
-    "most used/c#notes.md",
     "most used/github.md",
+    "most used/passwords.md",
     "most used/PlatRain Server DigitalOcean.md",
-    "most used/digitalocean.md",
-    "c#notes.md",
-    "c#.md",
-    "djngo.md",
-    "js.md",
-    "PlatRain Server DigitalOcean.md"
+    "most used/djngo.md",
+    "most used/js.md",
+    "most used/screen command.md",
+    "less used/chatgpt todo app ;.md",
+    "most used/c#notes.md",
+    "less used/xamp.md",
+    "images/csharp/1.png"
   ]
 }

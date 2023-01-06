@@ -36,6 +36,42 @@ string lastName = "Doe";
 string name = $"My full name is: {firstName} {lastName}";
 Console.WriteLine(name);
 ```
+
+```c#
+int num1 = 2;
+int num2 = 4;
+int sum = $"sum is: {num1+num2}";
+Console.WriteLine(sum);
+```
+
+------
+## difference between null and " "  :
+
+```c#
+string s ="";
+// the variable s is stored in stack and point to a place in the heap that contains the "" value (the place is reserved bul has empty value)
+string g = null; 
+// the variable g is stored in stack but dosn't point to any thing in heap (null dosn't reserve a place in the heap) 
+```
+
+![[images/csharp/1.png]]
+
+---------
+## null check :  null coalescing operator (??)
+
+```c#
+string s = null;
+s = s ?? "ahmed"  // if s=null , let s = "ahmed"
+Console.WriteLine(s); // ahmed
+```
+
+## null condisional operator (?) :
+
+```c#
+string s = null;
+s = s ?.ToUpper(); // convert s to uppercase if it is not null
+Console.WriteLine(s);
+```
 ---
 ## varibles :
 * value data type : short, int, char, float, double etc
@@ -44,15 +80,25 @@ Console.WriteLine(name);
 ---------
 ## type conversion :
 
--   **Implicit Casting** (automatically) - converting a smaller type to a larger type size  
-    `char` -> `int` -> `long` -> `float` -> `double`  
+-   **Implicit Casting** (automatically) 
+	- converting a smaller type to a larger type size  
+	    `char` -> `int` -> `long` -> `float` -> `double`  
+	* value type to reference type (boxing operation)
+*
 ```csharp
 int myInt = 9;
 double myDouble = myInt;       // Automatic casting: int to double
 ```
 
--   **Explicit Casting** (manually) - converting a larger type to a smaller size type  
-    `double` -> `float` -> `long` -> `int` -> `char`
+```csharp
+int myInt = 9;
+Object obj = myInt;       // Automatic casting: int to double
+```
+
+-   **Explicit Casting** (manually) 
+	* converting a larger type to a smaller size type  
+	    `double` -> `float` -> `long` -> `int` -> `char`
+	* reference type to value type  (unboxing operation)
 
 	*`Convert.ToBoolean`,
 	`Convert.ToDouble`, 
@@ -62,10 +108,14 @@ double myDouble = myInt;       // Automatic casting: int to double
 	(`long`)
 	`Convert.ToInt64`*
 	  
-		
 ```csharp
 double myDouble = 9.78;
 int myInt = (int) myDouble;    // Manual casting: double to int
+```
+
+```csharp
+Object obj = 3;      
+int i = (int)obj;
 ```
 
 ```csharp
@@ -78,11 +128,48 @@ Console.WriteLine(Convert.ToDouble(myInt));    // convert int to double
 Console.WriteLine(Convert.ToInt32(myDouble));  // convert double to int
 Console.WriteLine(Convert.ToString(myBool));   // convert bool to string
 ```
+
+```c#
+// convert string to any number type:
+
+string myStr = "12";
+int a = int.Parese(myStr);
+double b = double.Parese(myStr);
+
+// but if string is not number of out of range of int as "9999999999999999999" ?
+// then we will have to check the conversion validation first using tryParse()
+//-------------------------------------------
+
+int a;
+string myStr = "12";
+if (int.TryParse(myStr, out a))
+{
+	Console.WriteLine("String is converted to: "+a);
+}
+else
+{
+	Console.WriteLine("invalid string ,can't be converted to number ");
+}
+     
+```
+
+-------
+## Binary converting :
+
+![[Pasted image 20221219043726.png]]
+
+![[Pasted image 20221219043859.png]]
+
+.PadLeft(8,'0')  => means make it 8 bit and fill the empty bits with 0  
+
+there is more about asci ,binary, hexadecimal ,.... in DR : Issam video : 7 minute:40
+
 -------
 ## const :
 ```csharp
 // const prevents the override
 // You cannot declare a constant variable without assigning the value
+// in a class , if an attribute is defined as const , then this attribute can't be called by object name but must be called by class name
 const int myNum = 15;
 myNum = 20; // error
 ```
@@ -127,6 +214,35 @@ else
 int time = 20;
 string result = (time < 18) ? "Good day." : "Good evening.";
 Console.WriteLine(result);
+```
+
+------------
+## infinite loop :
+
+```c#
+for (;;)
+{
+	 Console.WriteLine("Good evening.");
+}
+```
+
+----
+
+## goto statement :
+
+```c#
+ineligible:
+	Console.WriteLine("You are not eligible to vote!");
+
+Console.WriteLine("Enter your age:\n");
+int age = Convert.ToInt32(Console.ReadLine());
+if (age < 18){
+goto ineligible;
+}
+else
+{
+Console.WriteLine("You are eligible to vote!");
+}
 ```
 ---------------------------------------------
 ## Array :
